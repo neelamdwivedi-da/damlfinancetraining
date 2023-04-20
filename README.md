@@ -20,11 +20,16 @@ These two concepts will then enable us to use a series of workflows to understan
 
 Here is the TOC to help you navigate the course content.
 
+---------
+
 ## Table of Content
+------
 
 ### Module 1
 
 1. [About Daml Finance](AboutDamlFinance.md)
+
+----------
 
 ### Module 2
 2. [Daml Design Patterns](DamlDesignPatterns.md)
@@ -36,8 +41,8 @@ Here is the TOC to help you navigate the course content.
 
 - Quiz 1
 - Lab 1
-
+--------
 
 ### Module 3
 6. [Transfer Workflow](TransferWorkflow.md)
-
+7. ...
