@@ -209,8 +209,8 @@ Finally, it queries using **queryInterface** to get the active account contracts
 Trace: 
   [(004486c8fe750caafb1d6334008250da93ca933808fefcc0c46715f41255dfd711,Some (AccountView {custodian = 'Bank', owner = 'Alice', id = "123", balance = 100.0, accountType = "S"})),(0019c07c056e8768760f6d7814cf2a1455770653e88062c2d2e199c9c9156eb37a,Some (AccountView {custodian = 'Bank', owner = 'Alice', id = "234", balance = 200.0, accountType = "C"}))]
 ```
-Notice that the only fields visible here are the ones that were in AccountView as part of IAccount. The fiel interestRate that was unique to SavingsAccount template is not visible. 
+Notice that the only fields visible here are the ones that were in AccountView as part of IAccount. The field **interestRate** that was unique to SavingsAccount template is not visible. 
 
 With this example, you can now see that we can add more types of accounts as templates and have them implement the IAccount interface. The client application will provide the data and AccountFactory will create the account as needed. 
 
-Now that we have learned about the use of Factory patterns, we can explore some workflows and see how these concepts are used in Daml Finance library. We will start with the Transfer workflow. 
+Now that we have learned about the use of Factory patterns, we can explore some workflows and see how these concepts are used in Daml Finance library. We will start with the [Transfer workflow](TransferWorkflow.md). 
