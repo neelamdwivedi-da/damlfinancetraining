@@ -29,7 +29,9 @@ This workflow uses the following key terms:
 - An account contract controls which parties are authorized to transfer holdings in and out of the account
 - Accounts are identified by **AccountKey** which comprises: owner, custodian, a textual id
 
-A holding references an account because it is the account that controls who is entitle to instruct and receive holding transfers. It also references instruments as instruments represent what is held in the holding.
+A holding references an account because it is the account that controls who is entitled to instruct and receive holding transfers. It also references instruments as instruments represent what is held in the holding.
 
 <img src = "DF-Diagrams5-Holding.png" width=400>
+
+Let us now look at the first step in the workflow which is to [create accoounts](CreatingAccounts.md). 
 
