@@ -1,12 +1,23 @@
 # Creating Accounts
 
-When a potential account owner wants to create an account with a custodian, then it uses the  **Propose-Accept pattern** and sends a request. The custodian may accept the requet, in which case the **Factory pattern** is used to create an account using the **Account Factory**. The Account Factory creates an account and returns an **AccountKey** to the owner. If the request is either declined by the custodian or withdrawn by the owner, then nothing happens. 
+In this lesson, you will learn how to create an account using Daml Finance library. You will also learn how Propose-Accept and Factory patterns are used in this functionality. 
 
-For this we will create a module called CreateAccount with one template called Request in it. 
+---------------
+
+
+<img src= "DF-Diagram10-WorkflowCreateAccount.png" width=400>
+
+When a potential account owner wants to create an account with a custodian, it sends a request to the custodian. The custodian may accept or reject the requet. This approachis based on Propose-Accept pattern. 
+
+If the custodian accepts the request then an account is created using the **AccountFactory**. The Account Factory creates an account and returns an **AccountKey** to the owner. This is athe application of Factory pattern. 
+
+If the request is either declined by the custodian or withdrawn by the owner, then no action takes happens. 
+
+For this logic, we will create a module called CreateAccount with one template called Request in it. 
 
 <img src="DF-Diagram6-CreateAccountRequest.png" width=300>
 
-Let us take a look at the code for this template.
+
 
 ```
 module Workflow.CreateAccount where
@@ -14,7 +25,7 @@ module Workflow.CreateAccount where
 import DA.Map qualified as M (fromList)
 import DA.Set qualified as S (fromList, singleton)
 import Daml.Finance.Interface.Account.Account qualified as Account (Controllers(..))
-import Daml.Finance.Interface.Account.Factory qualified as Account (Create(..), F)
+import Daml.Finance.Interface.Account.Factory qualified as AccountFactory (Create(..), F)
 import Daml.Finance.Interface.Holding.Factory qualified as Holding (F)
 import Daml.Finance.Interface.Types.Common.Types (AccountKey(..), Id(..))
 
@@ -30,7 +41,7 @@ template Request
       with
         label : Text
         description : Text
-        accountFactoryCid : ContractId Account.F
+        accountFactoryCid : ContractId AccountFactory.F 
         holdingFactoryCid : ContractId Holding.F
         observers : [Party]
       controller custodian
@@ -39,7 +50,7 @@ template Request
           observersSet = S.fromList observers
           accountKey = AccountKey with custodian = custodian, owner = owner, id = Id label
 
-        accountCid <- exercise accountFactoryCid Account.Create with
+        accountCid <- exercise accountFactoryCid AccountFactory.Create with
           account = accountKey
           description = description
           holdingFactoryCid = holdingFactoryCid
@@ -59,9 +70,55 @@ template Request
       do pure ()
 ```
 
-The Request contract is created by the potential owner of the account. Notice the two contractd ids being passed in this request: **accountFactoryCid** and **holdingFactoryCid**. The accountFactoryCid is the Cid of the Account factory to create an account. The holdingFactoryCid is required to establish a reference between Account and its Holding. 
+The Request contract is created by the potential owner of the account. 
 
-The **Accept** choice is exercised by the custodian. The body of this choice shows the Account.Create choice being exercised using the accountFactoryCid where Account is the qualified name for Daml.Finance.Interface.Account.Factory as given in the import statement. 
+Let us look at the Accept choice, starting with its input parameters. All these fields are used by the AccountFactory to create an account.  
+- **label**: used to create an AccountKey for the account. AccountKey is a data record defined in the module Daml.Finance.Interface.Types.Common.Types and has the following definition:
+
+```
+data AccountKey = AccountKey
+  with
+    custodian : Party
+    owner : Party
+    id : Id
+  deriving (Eq, Ord, Show)
+```
+
+The Id type used for id is defined as 
+
+```
+newtype Id = Id Text
+  deriving (Eq, Ord)
+```
+
+- **description**: human readable description of the account
+- **accountFactoryCid**: Cid of the account factory to create the account
+- **holdingFactoryCid**: Cid of the holding required to establish a reference between account and its holding
+- **observers**: list of observers for the account
 
 
+The **Accept** choice is exercised by the custodian. The body of this choice has the following steps:
 
+1. Extract the list of observers into **observersSet** 
+2. Create the account key using the custodian, owner and the label.
+3. Exercise Create choice on AccountFactory with Cid accountFactoryCid. Notice the controller for the account is assigned using Account.Controllers, which is a data record defined in DamlFinance.Interface.Account.Account module as shown below:
+
+```
+data Controllers = Controllers
+  with
+    outgoing : Parties -- Parties instructing a transfer (outgoing).
+    incoming : Parties -- Parties approving a transfer (incoming).
+  deriving (Eq, Show)
+```
+
+Since there is only the owner as the Controller, the outgoing and incoming controllers are set as singleton lists with owner as the single element. 
+
+4. Create a PartiesMap from the list of observers. PartiesMap is yet another type defined in Daml.Finance.Interface.Types.Common.Types module as follows: 
+
+```
+type Parties = Set Party -- a set of parties
+type PartiesMap = Map Text Parties -- Parties mapped to a key to allow add/remove
+```
+
+
+Now we have the template ready for the owner to make a request to the custodian, and for the custodian to accept the request to create the account. Next step in our workflow is to issue a cash instrument to be deposted into the new account. 
