@@ -1,4 +1,4 @@
 # Diagram Notations
 
 
-![image](DF-Diagram11-Notations.png)
+![image](./Images/DF-Diagram11-Notations.png)
