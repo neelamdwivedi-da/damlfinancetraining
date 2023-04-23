@@ -5,9 +5,9 @@ This course is an introduction to Daml Finance library with examples, use-cases,
 
 At the end of this course, you will be able to explain the purpose, architecture and design of Daml Finance library. The hands-on exercises will help you develop at least one full working use-case that applies the key learnings from this course. 
 
-To get the best out of this course, you are expected to have completed the Daml Fundamentals training and certification. 
+To get the best out of this course, you should have successfully completed the Daml Fundamentals training and certification program.  
 
-We will begin with two fundamental concepts used in the technical design of the library:
+In this course, we will begin with two fundamental concepts used in the technical design of the library:
 
 - **Daml design patterns**
 - **Daml interfaces**
@@ -29,7 +29,6 @@ Here is the TOC to help you navigate the course content.
 
 1. [About Daml Finance](./Module1/AboutDamlFinance.md)
 
-
 ----------
 
 ### Module 2
@@ -40,7 +39,7 @@ Here is the TOC to help you navigate the course content.
 
 #### Assessments
 
-- Quiz 1
+- [Quiz 1](./Module2/Quiz1.md)
 - Lab 1
 --------
 
