@@ -52,4 +52,4 @@ Here is the TOC to help you navigate the course content.
 
 
 ### Appendix
-1. [Diagram Notations](Diagram-Notations.md)
+1. [Diagram Notations](DiagramNotations.md)
