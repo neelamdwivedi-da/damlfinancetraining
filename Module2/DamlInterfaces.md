@@ -6,11 +6,11 @@ Daml interface is an abstract type whose behavior is specified by:
 - method signatures
 - choices
 
-The abstraction specified in an interface is implemented by a template by: 
+The abstraction specified in an interface is implemented in a template by: 
 
 - creating an instance of the interface
 - providing values for ‘view’ record
-- implementing the choices and functions
+- implementing the choices and methods
 
 Let us take an example to understand how this works. Let us think of a Library that loans out different types of media, such as Books and Discs, to its patrons.
 
