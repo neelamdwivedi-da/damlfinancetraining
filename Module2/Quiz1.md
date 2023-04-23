@@ -109,7 +109,7 @@ template Song
 
 ```
 
-Given this partial code, what should be written inside the parentheses next to return at the end?
+Given this partial code, which of the following is the correct return statement written at the end?
 
 1. return ()
 2. return (songCid)
