@@ -50,7 +50,7 @@ Here is the TOC to help you navigate the course content.
 9. [Create Accounts](./Module3/CreatingAccounts.md)
 10. Issue a cash instrument
 11. Credit a cash holding to an account
-12. Transfer transfer 
+12. Transfer the holding 
 
 ### Module 4
 ...
