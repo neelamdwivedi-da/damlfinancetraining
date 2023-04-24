@@ -6,7 +6,8 @@ In this lesson, you will learn how to test the account creation step coded in **
 
 <img src="../Images/DF-Diagram12-TestCreateAccount.png" width=500>
 
-As shown in the figure above, there are following steps in the script
+As shown in the figure above, we want to test the following workflow to test the CreateAccounts functionality: 
+
 1. Create Account factory
 2. Create Holding factory
 3. Using the contracts ids from above
