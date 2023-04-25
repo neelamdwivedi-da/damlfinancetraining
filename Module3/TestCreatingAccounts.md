@@ -10,9 +10,9 @@ As shown in the figure above, we want to test the following workflow to test the
 
 1. Create Account factory
 2. Create Holding factory
-3. Using the contracts ids from above
-- Alice creates account request
-- Bob creates account request
+3. Use the contracts ids from above for 
+- Alice to create account request
+- Bob to create account request
 4. Bank accepts Alice's request
 5. Bank accepts Bob's request
 
@@ -133,3 +133,4 @@ Finally, the steps for alice requesting for an account and the bank accepting th
 
 We now have an account factory, a holding factory, and an account for Alice that carries the Cids of the two factories. 
 
+Go ahead and try completing the script by having Bob submit an account request and then Bank accpeting his request to create his account. 
