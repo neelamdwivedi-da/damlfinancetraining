@@ -131,6 +131,6 @@ Finally, the steps for alice requesting for an account and the bank accepting th
             observers = []
 ```
 
-We now have an account factory, a holding factory, and an account for Alice that carries the Cids of the two factories. 
+We now have an account factory, a holding factory, and an account for Alice that carries Cids of two factories. 
 
-Go ahead and try completing the script by having Bob submit an account request and then Bank accpeting his request to create his account. 
+Go ahead and complete the script by having Bob submit an account request and then Bank accpeting his request to create his account. 
