@@ -51,6 +51,14 @@ Here is the TOC to help you navigate the course content.
 10. [Test Account Creation](./Module3/TestCreatingAccounts.md)
 - Create Account Factory 
 - Create Holding Factory
+
+#### Assessments
+- [Quiz 2](./Module3/Qiz2.md)
+- Lab 2
+
+-----------
+
+### Module 4
 11. Issue a cash instrument
 12. Credit a cash holding to an account
 13. Transfer the holding 

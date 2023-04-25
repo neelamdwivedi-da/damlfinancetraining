@@ -9,9 +9,9 @@ In this lesson, you will learn how to create an account using Daml Finance libra
 
 When a potential account owner wants to create an account with a custodian, it sends a request to the custodian. The custodian may accept or reject the requet. This approachis based on Propose-Accept pattern. 
 
-If the custodian accepts the request then an account is created using the **AccountFactory**. The Account Factory creates an account and returns an **AccountKey** to the owner. This is athe application of Factory pattern. 
+If the custodian accepts the request then an account is created using the **AccountFactory**. The Account Factory creates an account and returns an **AccountKey** to the owner. You can see the Factory pattern being applied here.
 
-If the request is either declined by the custodian or withdrawn by the owner, then no action takes happens. 
+If the request is either declined by the custodian or withdrawn by the owner, then no action is taken.  
 
 For this logic, we will create a module called CreateAccount with one template called Request in it. 
 
@@ -101,7 +101,7 @@ The **Accept** choice is exercised by the custodian. The body of this choice has
 
 1. Extract the list of observers into **observersSet** 
 2. Create the account key using the custodian, owner and the label.
-3. Exercise Create choice on AccountFactory with Cid accountFactoryCid. Notice the controller for the account is assigned using Account.Controllers, which is a data record defined in DamlFinance.Interface.Account.Account module as shown below:
+3. Exercise **Create** choice on AccountFactory with Cid accountFactoryCid. Notice the controller for the account is assigned using **Account.Controllers**, which is a data record defined in DamlFinance.Interface.Account.Account module as shown below:
 
 ```
 data Controllers = Controllers
@@ -111,7 +111,7 @@ data Controllers = Controllers
   deriving (Eq, Show)
 ```
 
-Since there is only the owner as the Controller, the outgoing and incoming controllers are set as singleton lists with owner as the single element. 
+Since the Controller is just the owner, the outgoing and incoming controllers are set as singleton lists with owner as the single element. 
 
 4. Create a PartiesMap from the list of observers. PartiesMap is yet another type defined in Daml.Finance.Interface.Types.Common.Types module as follows: 
 
