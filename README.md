@@ -53,7 +53,7 @@ Here is the TOC to help you navigate the course content.
 - Create Holding Factory
 
 #### Assessments
-- [Quiz 2](./Module3/Qiz2.md)
+- [Quiz 2](./Module3/Quiz2.md)
 - Lab 2
 
 -----------
