@@ -4,7 +4,7 @@ In this lesson, you will learn how to test the account creation step coded in **
 
 ----------
 
-<img src="../Images/DF-Diagram12-TestCreateAccount.png" width=500>
+<img src="../Images/DF-Diagram12-TestCreateAccount.png" width=800>
 
 As shown in the figure above, we want to test the following workflow to test the CreateAccounts functionality: 
 
