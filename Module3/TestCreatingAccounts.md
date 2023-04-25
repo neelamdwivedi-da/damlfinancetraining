@@ -73,7 +73,7 @@ testCreateAccount = script do
 
 ```
 
-### Create Account Factory
+### <a name="createAccountFactory"></a>Create Account Factory
 
 The first important step is creating the account factory
 
@@ -120,7 +120,7 @@ Finally, the steps for alice requesting for an account and the bank accepting th
         createCmd CreateAccount.Request with 
             owner = alice
             custodian = bank
-             
+
     -- bank accepts request
     aliceAccountCid <- submit bank do 
         exerciseCmd aliceRequestCid CreateAccount.Accept with 

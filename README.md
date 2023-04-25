@@ -48,9 +48,12 @@ Here is the TOC to help you navigate the course content.
 7. [Transfer workflow](./Module3/TransferWorkflow.md)
 8. [Daml Finance Library Structure](./Module3/DamlFinanceStructure.md)
 9. [Create Accounts](./Module3/CreatingAccounts.md)
-10. Issue a cash instrument
-11. Credit a cash holding to an account
-12. Transfer the holding 
+10. [Test Account Creation](./Module3/TestCreatingAccounts.md)
+- Create Account Factory 
+- Create Holding Factory
+11. Issue a cash instrument
+12. Credit a cash holding to an account
+13. Transfer the holding 
 
 ### Module 4
 ...

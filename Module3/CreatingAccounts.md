@@ -122,3 +122,5 @@ type PartiesMap = Map Text Parties -- Parties mapped to a key to allow add/remov
 
 
 Now we have the template ready for the owner to make a request to the custodian, and for the custodian to accept the request to create the account. Next step in our workflow is to issue a cash instrument to be deposted into the new account. 
+
+But before that, let us write a script to [test creating accounts](TestCreatingAccounts.md). 
